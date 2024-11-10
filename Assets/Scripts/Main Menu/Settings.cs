@@ -10,8 +10,8 @@ public class Settings : MonoBehaviour
     
     void Start() {
         
-        //musicSlider.Set(PlayerPrefs.GetFloat(Globals.MUSIC_VOLUME, 1f), false);
-        //sfxSlider.Set(PlayerPrefs.GetFloat(Globals.SFX_VOLUME, 0.75f), false);
+        musicSlider.value = PlayerPrefs.GetFloat(Globals.MUSIC_VOLUME, 1f);
+        sfxSlider.value = PlayerPrefs.GetFloat(Globals.SFX_VOLUME, 0.75f);
         
         mainMixer.SetFloat(Globals.MUSIC_VOLUME,
             20 * Mathf.Log10(musicSlider.value + float.Epsilon));
