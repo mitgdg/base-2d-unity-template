@@ -8,7 +8,7 @@ public class Settings : MonoBehaviour
     [SerializeField] private AudioMixer mainMixer;
     [SerializeField] private Slider musicSlider, sfxSlider;
     
-    void Start {
+    void Start() {
         
         //musicSlider.Set(PlayerPrefs.GetFloat(Globals.MUSIC_VOLUME, 1f), false);
         //sfxSlider.Set(PlayerPrefs.GetFloat(Globals.SFX_VOLUME, 0.75f), false);
