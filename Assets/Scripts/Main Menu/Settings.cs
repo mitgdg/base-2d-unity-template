@@ -2,32 +2,26 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-
 public class Settings : MonoBehaviour
 {
-    [SerializeField] private AudioMixer mainMixer;
-    [SerializeField] private Slider musicSlider, sfxSlider;
+    [SerializeField] AudioMixer mainMixer;
+    [SerializeField] Slider musicSlider;
+    [SerializeField] Slider sfxSlider;
     
-    void Start {
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
         
-        //musicSlider.Set(PlayerPrefs.GetFloat(Globals.MUSIC_VOLUME, 1f), false);
-        //sfxSlider.Set(PlayerPrefs.GetFloat(Globals.SFX_VOLUME, 0.75f), false);
-        
-        mainMixer.SetFloat(Globals.MUSIC_VOLUME,
-            20 * Mathf.Log10(musicSlider.value + float.Epsilon));
-        mainMixer.SetFloat(Globals.SFX_VOLUME,
-            20 * Mathf.Log10(sfxSlider.value + float.Epsilon));
-        
-        musicSlider.onValueChanged.AddListener(val =>
-        {
-            mainMixer.SetFloat(Globals.MUSIC_VOLUME, 20 * Mathf.Log10(val + float.Epsilon));
-            PlayerPrefs.SetFloat(Globals.MUSIC_VOLUME, val);
-        });
-
-        sfxSlider.onValueChanged.AddListener(val =>
-        {
-            mainMixer.SetFloat(Globals.SFX_VOLUME, 20 * Mathf.Log10(val + float.Epsilon));
-            PlayerPrefs.SetFloat(Globals.SFX_VOLUME, val);
-        });
     }
+
+    public void SetMusicVolume() {
+        float volume = musicSlider.value;
+        mainMixer.SetFloat("Music", Mathf.Log10(volume) * 20); 
+    }
+    public void SetSFXVolume() {
+        float volume = sfxSlider.value;
+        mainMixer.SetFloat("SFX", Mathf.Log10(volume) * 20); 
+    }
+
+
 }
