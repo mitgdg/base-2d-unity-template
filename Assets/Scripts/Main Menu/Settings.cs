@@ -9,7 +9,6 @@ public class Settings : MonoBehaviour
     [SerializeField] private Slider musicSlider, sfxSlider;
     
     void Start() {
-        
         musicSlider.value = PlayerPrefs.GetFloat(Globals.MUSIC_VOLUME, 1f);
         sfxSlider.value = PlayerPrefs.GetFloat(Globals.SFX_VOLUME, 0.75f);
         

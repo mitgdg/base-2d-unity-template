@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+// Taken from Angela He's template YarnPile. Isn't being used for anything atm.
 public class MoveToMouse : MonoBehaviour
 {
     public float minimize = 0.03f;
